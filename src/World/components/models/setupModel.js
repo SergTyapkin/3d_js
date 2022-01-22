@@ -9,6 +9,11 @@ function setupModel(data) {
     box.max.y - box.min.y,
     box.max.z - box.min.z,
   )
+  model.center = new Vector3(
+    (box.max.x + box.min.x) / 2,
+    (box.max.y + box.min.y) / 2,
+    (box.max.z + box.min.z) / 2,
+  )
 
   // model.scale.set(100 / model.size.x, 100 / model.size.y, 100 / model.size.z);
   return model;

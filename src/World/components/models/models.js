@@ -6,14 +6,15 @@ async function loadModels() {
   const loader = new GLTFLoader();
 
   const models = await Promise.all([
-    loader.loadAsync('/assets/models/Model.glb'),
+    loader.loadAsync('./assets/models/Model.glb'),
   ]);
   const positions = [[0, 0, 0]];
 
   const output = [];
   models.forEach((model, idx) => {
     const out = setupModel(model);
-    out.position.copy(out.size.multiplyScalar(-0.5));
+    out.position.sub(out.center);
+    console.log("CENTER:", out.center, out.position);
     output.push(out);
   });
 
