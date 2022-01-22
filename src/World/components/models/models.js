@@ -1,6 +1,6 @@
 import { GLTFLoader } from '../../../../vendor/three/examples/jsm/loaders/GLTFLoader.js';
 
-import { setupModel } from './setupModel.js';
+import {setupModel, updateSize} from './setupModel.js';
 
 async function loadModels() {
   const loader = new GLTFLoader();
@@ -9,13 +9,14 @@ async function loadModels() {
     loader.loadAsync('./assets/models/Model.glb'),
   ]);
   const positions = [[0, 0, 0]];
+  const rotations = [Math.PI];
 
   const output = [];
-  models.forEach((model, idx) => {
-    const out = setupModel(model);
-    out.position.sub(out.center);
-    console.log("CENTER:", out.center, out.position);
-    output.push(out);
+  models.forEach((data, idx) => {
+    const model = setupModel(data);
+    updateSize(model);
+    model.position.sub(model.center);
+    output.push(model);
   });
 
   return output;

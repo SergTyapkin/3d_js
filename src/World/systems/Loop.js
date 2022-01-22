@@ -31,7 +31,6 @@ class Loop {
     // console.log(
     //   `The last frame rendered in ${delta * 1000} milliseconds`,
     // );
-
     for (const object of this.updatables) {
       object.tick(delta);
     }
