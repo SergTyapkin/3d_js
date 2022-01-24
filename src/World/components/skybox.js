@@ -8,15 +8,13 @@ import {
 
 export async function createSkybox() {
   const loader = new TextureLoader();
+  const path = "./assets/skyboxes/cliffs/";
+  const extension = ".png";
+  const imageNames = ["ft", "bk", "up", "dn", "rt", "lf"];
 
-  const textures = await Promise.all([
-    loader.loadAsync( './assets/textures/flame_ft.jpg'),
-    loader.loadAsync( './assets/textures/flame_bk.jpg'),
-    loader.loadAsync( './assets/textures/flame_up.jpg'),
-    loader.loadAsync( './assets/textures/flame_dn.jpg'),
-    loader.loadAsync( './assets/textures/flame_rt.jpg'),
-    loader.loadAsync( './assets/textures/flame_lf.jpg'),
-  ]);
+  const textures = await Promise.all(
+      imageNames.map((name) => loader.loadAsync(path + name + extension))
+  );
 
   const materialArray = textures.map((texture) => {
     const material = new MeshBasicMaterial( { map: texture });

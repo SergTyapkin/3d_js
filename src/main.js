@@ -14,6 +14,8 @@ async function main() {
   world.start();
 }
 
-main().catch((err) => {
-  console.error(err);
-});
+main();
+
+// main().catch((err) => {
+//   console.error(err);
+// });

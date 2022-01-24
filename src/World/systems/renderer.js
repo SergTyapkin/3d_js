@@ -5,7 +5,7 @@ export function createRenderer() {
 
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.physicallyCorrectLights = true;
-  renderer.shadowMap.enabled = true;
+  //renderer.shadowMap.enabled = true;
 
   return renderer;
 }

@@ -10,7 +10,7 @@ export async function createObjects(floorY = 0) {
   // Create materials
   const loader = new TextureLoader();
   const textures = await Promise.all([
-    loader.loadAsync( './assets/textures/flame_dn.jpg'),
+    loader.loadAsync( './assets/skyboxes/cliffs/dn.png'),
   ]);
 
   const mat1 = new MeshBasicMaterial({map: textures[0]});
@@ -20,7 +20,7 @@ export async function createObjects(floorY = 0) {
   });
 
   // Create meshes
-  const geoPlane = new PlaneBufferGeometry(300, 300);
+  const geoPlane = new PlaneBufferGeometry(9000, 9000);
 
   // Create objects
   const plane = new Mesh(geoPlane, mat1);
@@ -30,5 +30,5 @@ export async function createObjects(floorY = 0) {
   plane.receiveShadow = true;
   plane.castShadow = true;
 
-  return [plane];
+  return [];
 }

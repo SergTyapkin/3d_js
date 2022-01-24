@@ -12,12 +12,12 @@ function createLights() {
   light.castShadow = true;
 
 
-  const L1 = new DirectionalLight(0xFF3040, 1);
-  L1.position.set(-2, 1, -1);
+  const L1 = new DirectionalLight(0xFF3040, 4);
+  L1.position.set(2, 1, -1);
   L1.castShadow = true;
 
-  const L2 = new DirectionalLight(0x3030FF, 2);
-  L2.position.set(1, 1, -1);
+  const L2 = new DirectionalLight(0x3030FF, 3);
+  L2.position.set(-1, 1, 1);
   L2.castShadow = true;
 
   const L3 = new SpotLight(0xffa95c,10);
